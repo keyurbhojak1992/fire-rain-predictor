@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌧️ Rain or Fire Alert 🔥</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!-- Blurred background image -->
+    <div class="background"></div>
+
+    <!-- App container -->
+    <div class="container">
+        <h1>🌧️ Fire Weather Risk Predictor 🔥</h1>
+        <p class="subheading">Enter conditions to predict rain and fire risk</p>
+
+        <form method="POST" action="/predict">
+            <label for="Temperature">Temperature (°C):</label>
+            <input type="number" id="Temperature" name="Temperature" step="any" required>
+
+            <label for="RH">Relative Humidity (RH):</label>
+            <input type="number" id="RH" name="RH" step="any" required>
+
+            <label for="Ws">Wind Speed (Ws):</label>
+            <input type="number" id="Ws" name="Ws" step="any" required>
+
+            <label for="Rain">Rain (in mm):</label>
+            <input type="number" id="Rain" name="Rain" step="any" required>
+
+            <label for="FFMC">FFMC:</label>
+            <input type="number" id="FFMC" name="FFMC" step="any" required>
+
+            <label for="DMC">DMC:</label>
+            <input type="number" id="DMC" name="DMC" step="any" required>
+
+            <label for="DC">DC:</label>
+            <input type="number" id="DC" name="DC" step="any" required>
+
+            <label for="ISI">ISI:</label>
+            <input type="number" id="ISI" name="ISI" step="any" required>
+
+            <label for="BUI">BUI:</label>
+            <input type="number" id="BUI" name="BUI" step="any" required>
+
+            <label for="FWI">FWI:</label>
+            <input type="number" id="FWI" name="FWI" step="any" required>
+
+            <button type="submit">🔥 Predict Now 🔥</button>
+        </form>
+
+        {% if prediction_text %}
+            <div class="result-box">
+                <h2>{{ prediction_text }}</h2>
+            </div>
+        {% endif %}
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
