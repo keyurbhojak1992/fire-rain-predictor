@@ -106,3 +106,25 @@ button:hover {
         box-shadow: 0 0 20px #2ECC40, 0 0 30px #2ECC40;
     }
 }
+
+/* Footer Styles */
+.site-footer {
+    text-align: center;
+    padding: 20px 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #aaa;
+    font-size: 0.85em;
+    margin-top: 40px;
+    border-top: 1px solid #444;
+}
+
+.site-footer a {
+    color: #7FDBFF;
+    text-decoration: none;
+    margin: 0 8px;
+    transition: color 0.3s;
+}
+
+.site-footer a:hover {
+    color: #01FF70;
+}
