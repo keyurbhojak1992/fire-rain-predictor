@@ -1,6 +1,10 @@
 from flask import Flask, render_template, request
 import joblib
 import pandas as pd
+import os
+from threading import Thread
+import requests
+from time import sleep
 
 # Load the trained model
 model = joblib.load('random_forest_model.pkl')
