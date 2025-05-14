@@ -44,9 +44,6 @@ def predict():
 
     return render_template('index.html', prediction_text='Prediction: {}'.format(result))
 
-if __name__ == "__main__":
-    app.run(debug=True)
-
 def ping_self():
     while True:
         try:
