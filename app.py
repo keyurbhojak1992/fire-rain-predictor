@@ -42,3 +42,21 @@ def predict():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+def ping_self():
+    while True:
+        try:
+            # Ping your own Render URL every 5 minutes
+            requests.get("https://your-app-name.onrender.com")
+            sleep(300)  # 300 seconds = 5 minutes
+        except:
+            sleep(60)  # If error, wait 1 minute and retry
+
+# Start keep-alive thread when not in debug mode
+if not app.debug and os.environ.get("WERKZEUG_RUN_MAIN") != "true":
+    t = Thread(target=ping_self)
+    t.daemon = True
+    t.start()
+
+if __name__ == '__main__':
+    app.run(debug=True)
